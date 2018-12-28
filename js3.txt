@@ -1,0 +1,17 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	function second(){
+			var a = prompt("Ведите размер массива");
+			var arr = [];
+			for (var i = 0; i<a; i++) {
+				arr[i]= prompt("Введите имя");
+			}
+			console.log(arr);
+	}
+</script>
+</body>
+</html>

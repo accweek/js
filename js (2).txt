@@ -1,0 +1,28 @@
+<html>
+<head>
+</head>
+
+<body>
+
+<form>
+
+<textarea id="comment" name="field" cols="100" rows="8"></textarea></p>
+<p><input id="Send"  type="submit" value="Отправить" onClick="return Formdata(this.form)">
+<script type="text/javascript">
+function Formdata(data)
+{
+	if (!data.field || !data.field.value) {
+	alert ('Fill fields');
+	}
+	else{
+	alert('Messege send sucsesfully!!!');
+	}
+	}
+</script>
+<input type="reset" value="Очистить"></p>
+</form>
+
+
+</body>
+
+</html>

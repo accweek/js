@@ -1,0 +1,74 @@
+<html>
+<head>
+	<title>Задание по JS</title>
+</head>
+<body>
+	<form>
+		<input type="text" name="thisname" value="" id="nameofPerson">
+		<input type="button" id="addPerson" value="Add Person">
+		<select id="List"></select>
+		<input type="button" name="remove" id="Remove" value="Remove person">
+	</form>
+	<script type="text/javascript">
+		var arr=[];
+		var id = 0;
+		document.addEventListener("DOMContentLoaded", function () {
+			document.getElementById("addPerson").addEventListener("click", addPerson);
+			document.getElementById("addPerson").addEventListener("click", AddInTheEnd);
+			document.getElementById("Remove").addEventListener("click",RemovePerson);
+		});
+		function addPerson(event) {
+			var name = document.getElementById('nameofPerson').value;
+			massivobj(name);
+		}
+		function AddInTheEnd(event){
+			var person = arr[arr.length-1];
+			var list = document.getElementById("List");
+			var option = document.createElement("option");
+			option.value = person.id;
+			option.text = person.name;
+			list.add(option);
+		}
+		function RemovePerson(event){
+			var ReadyList = document.getElementById("List");
+			var id = ReadyList.value;//////////////
+			ReadyList.remove(ReadyList.selectedIndex);/////////////////удаляет верхний элемент, но в arr удаляет по указанному id
+			deleteID(id);
+		}
+		function massivobj(name){
+			var myObj = {
+				name: name,
+				id: id++
+			};
+			arr.push(myObj);
+			return myObj;
+		}
+		function enter(){
+			for(var i = 0;i < arr.length;i++){
+				console.log(arr[i]);
+			}
+		}
+		function deleteID(){
+			var a = prompt("Введите id элемента");
+		//var b = prompt("Введите количество элементов которые хотите удалить");
+		if (a > id) {
+			console.log("Error!");
+		}
+		else{
+			arr.splice(a,1);
+		}
+	}
+	function access(){
+		var b = prompt("Введите id элемента к которому хотите получить доступ");
+		if (b > id) {
+			console.log("Error!");
+		}
+		else{
+			var element = arr[b];
+			console.log("Вам разрешено в доступе к " + b + " Элементу в массиве");
+			console.log(arr[b]);
+		}
+	}
+</script>
+</body>
+</html>
